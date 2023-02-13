@@ -9,4 +9,9 @@ class Image extends Model
 {
     use HasFactory;
     protected $fillable = ['name', 'file', 'enable'];
+
+    public function products()
+    {
+        return $this->belongsToMany(Product::class,'products_images','image_id','product_id');
+    }
 }
